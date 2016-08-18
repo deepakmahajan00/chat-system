@@ -1,0 +1,7 @@
+<h1>Users</h1>
+
+<% @users.each do |key, value| %>
+<ul class="b">
+  <li><a href="/users/<%= key %>"><%= value %></a></li>
+</ul>
+<% end %>

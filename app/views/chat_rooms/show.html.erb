@@ -1,0 +1,30 @@
+
+<div class="userscontent">
+  	<h1>Available Users in room <%= @chat_room.title %></h1>
+  	<ul class="b">
+	<% @users.each do |key, value| %>
+		<li><a href="/users/<%= key %>"><%= first_letter_upper(value) %></a></li>
+	<% end %>	
+	</ul>
+</div>
+
+
+<h1><%= @chat_room.title %></h1>
+<div class="chatboxcontent">
+	<div id="messages" data-chat-room-id="<%= @chat_room.id %>">
+	  <%= render @chat_room.messages %>
+	</div>
+</div>
+<div><br/></div>
+<div class="chatboxinput">
+	<%= form_for @message, url: '#' do |f| %>
+	  <div class="form-group ">
+	    
+	    <%= f.text_area :body, class: 'form-control' %>
+	    <small class="text-muted">From 2 to 1000 characters</small>
+	  </div>
+
+	  <%= f.submit "Send Message", class: 'btn btn-success btn-xs start-conversation' %>
+	<% end %>
+</div>
+
